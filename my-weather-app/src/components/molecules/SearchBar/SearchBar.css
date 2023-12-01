@@ -1,0 +1,52 @@
+/* SearchBar.css */
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  margin-top: 100px;
+  gap: 10px;
+}
+
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  background: transparent; /* Set the background to transparent */
+  border: 1px solid #e7e7eb; /* Set the border color */
+  width: 218px;
+  height: 35px;
+}
+
+.search-icon {
+  margin: 0 8px;
+  font-size: 16px;
+  width: 15px;
+  height: 15px;
+  color: #ccc;
+}
+
+.search-input {
+  font-family: "Raleway";
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  width: 150px;
+  background: transparent; /* Set the background to transparent */
+  line-height: 18.78px;
+  color: #616475;
+}
+
+.search-button {
+  padding: 8px;
+  background-color: #3c47e9; /* Set to transparent */
+  color: #e7e7eb;
+  border: none;
+  cursor: pointer;
+  width: 60px;
+  height: 35px;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #0011ff; /* Add a subtle hover effect */
+}

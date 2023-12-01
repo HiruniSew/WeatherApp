@@ -1,4 +1,47 @@
-.App {
-  color: brown;
-  margin-left: 200px;
+.HomeMain {
+  display: flex;
+  flex-direction: row;
+}
+
+.Current-Weather-Home {
+  width: 459px;
+  height: 1023px;
+  background: #1e213a;
+}
+
+.Future-Weather-Home {
+  width: 981px;
+  height: 1023px;
+  background: #100e1d;
+}
+
+/*current*/
+
+.top {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  gap: 80px;
+}
+.SearchPlacesButton {
+}
+
+/* LocationImage.css */
+
+.location-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #6e707a;
+  color: #fff; /* Set the icon color to white */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 3px;
+}
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined", sans-serif;
+  font-size: 24px;
 }
