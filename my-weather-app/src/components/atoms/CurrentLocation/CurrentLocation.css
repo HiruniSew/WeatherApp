@@ -1,0 +1,63 @@
+/* CurrentLocation.css */
+.fetch-location-container {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  background-color: #6e707a;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 80%; /* Make the entire container circular */
+  border: 2px solid #6e707a; /* Add a gray border around the container */
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+}
+
+.fetch-location-container:hover {
+  background-color: #495057;
+}
+
+.location-icon {
+  font-size: 15px;
+  margin-right: 5px;
+}
+
+.weather-info-container {
+  position: fixed;
+  bottom: 20px;
+  left: 80px;
+  padding: 10px;
+}
+
+.location-info {
+  color: #88869d;
+  font-family: "Raleway";
+  font-size: 16px;
+  font-style: normal;
+  line-height: normal;
+}
+
+.current-day {
+  margin: 0;
+  font-size: 14px;
+  color: #88869d;
+  font-family: Raleway;
+  font-weight: bold;
+  margin-left: 10px; /* Add margin-right for the gap */
+  margin-bottom: 20px;
+}
+
+.weather-info {
+  font-size: 18px;
+}
+
+.temperature {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 200px;
+  margin-left: 200px;
+}
+
+.weather-description {
+  font-size: 18px;
+}
