@@ -4,22 +4,14 @@
 }
 
 .Current-Weather-Home {
-  width: 459px;
-  height: 1023px;
+  width: 25%;
+  height: auto;
+
   background: #1e213a;
 }
 
 .Future-Weather-Home {
   width: 100%;
-  height: 1023px;
+  height: auto;
   background: #100e1d;
-}
-
-/*current*/
-.top {
-  display: flex;
-  flex-direction: row;
-  gap: 100px;
-  margin-top: 30px;
-  margin-left: 30px;
 }

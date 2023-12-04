@@ -1,3 +1,11 @@
+.top {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  gap: 80px;
+  margin-left: 40px;
+}
+
 /* CurrentLocation.css */
 .fetch-location-container {
   display: flex;
@@ -23,10 +31,8 @@
 }
 
 .weather-info-container {
-  position: fixed;
-  bottom: 20px;
-  left: 80px;
-  padding: 10px;
+  left: 95px;
+  margin-top: 40px;
 }
 
 .location-info {
@@ -35,6 +41,8 @@
   font-size: 16px;
   font-style: normal;
   line-height: normal;
+  margin-top: 20px;
+  margin-right: 10px;
 }
 
 .current-day {
@@ -43,21 +51,33 @@
   color: #88869d;
   font-family: Raleway;
   font-weight: bold;
-  margin-left: 10px; /* Add margin-right for the gap */
-  margin-bottom: 20px;
+  margin-right: 5px;
 }
 
-.weather-info {
-  font-size: 18px;
+.weather-info-container1 {
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 300px;
 }
 
-.temperature {
-  font-size: 24px;
-  font-weight: bold;
+.temperature-info {
+  color: #e7e7eb;
+  font-family: "Raleway";
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
   margin-top: 200px;
-  margin-left: 200px;
 }
 
 .weather-description {
-  font-size: 18px;
+  color: #a09fb1;
+  text-align: center;
+  font-family: "Raleway";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }

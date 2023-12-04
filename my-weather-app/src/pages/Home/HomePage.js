@@ -18,14 +18,8 @@ const HomePage = () => {
       <div className="HomeMain">
         {/* section 1 */}
         <div class="Current-Weather-Home">
-          <div class="top">
-            <div class="SearchPlacesButton">
-              <SearchPlacesButton />
-            </div>
-
-            <div class="location-image-container">
-              <CurrentLocation />
-            </div>
+          <div class="current-location-weather">
+            <CurrentLocation />
           </div>
         </div>
 

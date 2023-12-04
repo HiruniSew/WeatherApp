@@ -6,6 +6,7 @@ import {
   faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import "./CurrentLocation.css";
+import SearchPlacesButton from "../SearchPlacesButton/SearchPlacesButton";
 
 const CurrentLocation = () => {
   const [location, setLocation] = useState(null);
@@ -61,12 +62,13 @@ const CurrentLocation = () => {
 
     try {
       const response = await axios.get(apiUrl);
-      console.log("Weather API response:", response.data); // Log the response
+      console.log("Weather API response:", response.data);
       setWeather(response.data);
     } catch (error) {
       console.error("Error fetching weather:", error.message);
     }
   };
+
   const updateCurrentDay = () => {
     const options = { weekday: "short", day: "numeric", month: "short" };
     const today = new Date();
@@ -76,13 +78,33 @@ const CurrentLocation = () => {
 
   return (
     <div>
-      <div className="fetch-location-container" onClick={getCurrentLocation}>
-        <FontAwesomeIcon
-          icon={faLocationCrosshairs}
-          className="location-icon"
-        />
+      {/* serch section */}
+      <div class="top">
+        <div class="SearchPlacesButton">
+          <SearchPlacesButton />
+        </div>
+
+        <div className="fetch-location-container" onClick={getCurrentLocation}>
+          <FontAwesomeIcon
+            icon={faLocationCrosshairs}
+            className="location-icon"
+          />
+        </div>
       </div>
 
+      {/* weather section */}
+      {weather && (
+        <div className="weather-info-container1">
+          <div>
+            <p className="temperature-info">{weather.main.temp}°C</p>
+            <p className="weather-description">
+              {weather.weather[0].description}
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* location section */}
       {location && (
         <div className="weather-info-container">
           <p className="current-day">{currentDay}</p>
@@ -90,13 +112,6 @@ const CurrentLocation = () => {
             <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" />
             {locationName}
           </p>
-
-          {weather && (
-            <div>
-              <p>Temperature: {weather.main.temp}°C</p>
-              <p>Weather: {weather.weather[0].description}</p>
-            </div>
-          )}
         </div>
       )}
     </div>
