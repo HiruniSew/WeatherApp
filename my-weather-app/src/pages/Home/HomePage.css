@@ -1,17 +1,16 @@
 .HomeMain {
   display: flex;
   flex-direction: row;
+  height: 100vh;
+  overflow: auto;
 }
 
 .Current-Weather-Home {
   width: 25%;
-  height: auto;
-
   background: #1e213a;
 }
 
 .Future-Weather-Home {
   width: 100%;
-  height: auto;
   background: #100e1d;
 }

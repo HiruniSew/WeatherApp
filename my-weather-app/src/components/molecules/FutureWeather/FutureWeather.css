@@ -1,0 +1,72 @@
+/* FutureWeather.css */
+
+.container {
+  display: flex;
+  justify-content: right;
+  margin-right: 200px;
+}
+
+.icon-container {
+  font-size: 18px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-left: 10px; /* Add margin for spacing */
+  font-family: "Raleway";
+  color: #110e3c;
+}
+
+.celsius-icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  background-color: #e7e7eb;
+}
+
+.fahrenheit-icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  background-color: #585676;
+}
+.location-name {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.weather-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 80px;
+  justify-content: right;
+  margin-right: 190px;
+}
+
+.weather-box {
+  border-radius: 5px;
+  margin: 10px;
+  padding: 15px;
+  text-align: center;
+  background-color: #1e213a;
+  width: 120px;
+  height: 177px;
+}
+
+.icon-container img {
+  width: 50px;
+  height: 50px;
+}
+
+.temperature {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #e7e7eb;
+}
+.date {
+  color: #e7e7eb;
+}

@@ -1,3 +1,4 @@
+// CurrentLocation.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,13 +7,17 @@ import {
   faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import "./CurrentLocation.css";
-import SearchPlacesButton from "../SearchPlacesButton/SearchPlacesButton";
+import SearchBar from "../SearchBar/SearchBar";
+import SearchPlacesButton from "../../atoms/SearchPlacesButton/SearchPlacesButton";
+import SideDrawer from "../SideDrawer/SideDrawer";
 
 const CurrentLocation = () => {
   const [location, setLocation] = useState(null);
   const [locationName, setLocationName] = useState("");
   const [currentDay, setCurrentDay] = useState("");
   const [weather, setWeather] = useState(null);
+  const [searchedWeather, setSearchedWeather] = useState(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   useEffect(() => {
     getCurrentLocation();
@@ -35,6 +40,9 @@ const CurrentLocation = () => {
     } else {
       console.error("Geolocation is not supported by this browser.");
     }
+
+    // Reset searchedWeather when getting current location
+    setSearchedWeather(null);
   };
 
   const fetchLocationName = async (latitude, longitude) => {
@@ -76,12 +84,37 @@ const CurrentLocation = () => {
     setCurrentDay(`Today ${formattedDate}`);
   };
 
+  const handleSearchWeather = (searchedWeatherData) => {
+    setSearchedWeather(searchedWeatherData);
+  };
+
+  const handleSearchLocation = async (searchedLocationData) => {
+    setLocation(searchedLocationData);
+
+    // Fetch weather for the searched location
+    fetchWeather(searchedLocationData.latitude, searchedLocationData.longitude);
+
+    // Fetch location name for the searched location
+    fetchLocationName(
+      searchedLocationData.latitude,
+      searchedLocationData.longitude
+    );
+  };
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
+
+  const closeDrawer = () => {
+    setIsDrawerOpen(false);
+  };
+
   return (
     <div>
-      {/* serch section */}
-      <div class="top">
-        <div class="SearchPlacesButton">
-          <SearchPlacesButton />
+      {/* Search section */}
+      <div className="top">
+        <div className="SearchPlacesButton">
+          <SearchPlacesButton onClick={getCurrentLocation} />
         </div>
 
         <div className="fetch-location-container" onClick={getCurrentLocation}>
@@ -92,19 +125,39 @@ const CurrentLocation = () => {
         </div>
       </div>
 
-      {/* weather section */}
-      {weather && (
+      {/* Weather display section */}
+      {(searchedWeather || weather) && (
         <div className="weather-info-container1">
+          {/* Render weather image here */}
+          <img
+            src={`https://openweathermap.org/img/wn/${
+              searchedWeather
+                ? searchedWeather.weather[0].icon
+                : weather.weather[0].icon
+            }.png`}
+            alt={
+              searchedWeather
+                ? searchedWeather.weather[0].description
+                : weather.weather[0].description
+            }
+            className="weather-image"
+          />
+
           <div>
-            <p className="temperature-info">{weather.main.temp}°C</p>
+            <p className="temperature-info">
+              {searchedWeather ? searchedWeather.main.temp : weather.main.temp}
+              °C
+            </p>
             <p className="weather-description">
-              {weather.weather[0].description}
+              {searchedWeather
+                ? searchedWeather.weather[0].description
+                : weather.weather[0].description}
             </p>
           </div>
         </div>
       )}
 
-      {/* location section */}
+      {/* Location section */}
       {location && (
         <div className="weather-info-container">
           <p className="current-day">{currentDay}</p>

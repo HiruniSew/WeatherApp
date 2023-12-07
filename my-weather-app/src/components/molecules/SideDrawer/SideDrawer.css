@@ -1,0 +1,27 @@
+/* SideDrawer.css */
+.side-drawer {
+  width: 340px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -340px; /* Start off-screen to the left */
+  background-color: #fff;
+  transition: left 0.3s ease-out;
+  background: #1e213a;
+}
+
+.side-drawer.open {
+  left: 0; /* Move to the left when open */
+}
+.drawer-header {
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 265px;
+}
+
+.close-icon {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  color: #e7e7eb;
+}

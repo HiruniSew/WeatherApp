@@ -2,14 +2,38 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import "./SearchBar.css"; // Import the CSS file for styling
+import "./SearchBar.css";
 
-const SearchBar = () => {
+const SearchBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearch = () => {
-    // Implement your search functionality here
-    console.log("Searching for:", searchTerm);
+  const handleSearch = async () => {
+    try {
+      const apiKey = "d069695f718b2988a8067e329a6dc132";
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=${apiKey}`
+      );
+
+      if (!response.ok) {
+        throw new Error("Weather data not found");
+      }
+
+      const weatherData = await response.json();
+
+      const locationData = {
+        country: weatherData.sys.country,
+        city: weatherData.name,
+      };
+
+      const searchData = {
+        weatherData,
+        locationData,
+      };
+
+      onSearch(searchData);
+    } catch (error) {
+      console.error("Error fetching weather data:", error.message);
+    }
   };
 
   return (
