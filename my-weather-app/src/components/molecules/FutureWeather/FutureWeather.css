@@ -43,8 +43,8 @@
   flex-direction: row;
   justify-content: center;
   margin-top: 80px;
-  justify-content: right;
-  margin-right: 190px;
+  /* justify-content: right; */
+  /* margin-right: 190px; */
 }
 
 .weather-box {
