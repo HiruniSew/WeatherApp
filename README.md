@@ -24,3 +24,4 @@ User story: I can see the air pressure number
 User story(optional): I can request my current location weather
 
 User story(optional): I can convert temperature in Celcius to Fahrenheit and vice versa
+![weather app](https://github.com/HiruniSew/WeatherApp/assets/149354111/270f9e6c-2a3d-430d-ab0f-bd38f0abb33b)
